@@ -120,11 +120,11 @@ with st.expander('Spiral'):
         .encode(x='x:Q', y='y:Q')
     )
 
-file_path = '/assets/df_Best_ATM_Options.zip'
+file_path = 'df_Best_ATM_Options.zip'
 modified_time = time.ctime(os.path.getmtime(file_path))
 try:
     most_recent_Accounts_History = max(
-        glob.glob(f'/assets/Accounts_History*.csv'), key=os.path.getmtime
+        glob.glob(f'Accounts_History*.csv'), key=os.path.getmtime
     )
     st.text(
         f'df_Best_ATM_Options.zip = {modified_time}   {os.path.basename(most_recent_Accounts_History)} update = {time.ctime(os.path.getmtime(most_recent_Accounts_History))}'
