@@ -12,7 +12,7 @@ TradingView [QQQ](https://www.tradingview.com/chart/HBL4nq9u/?symbol=NASDAQ%3AQQ
 """
 
 
-with st.echo(code_location='below'):
+with st.expander('Spiral'):
     total_points = st.slider("Number of points in spiral", 1, 5000, 2000)
     num_turns = st.slider("Number of turns in spiral", 1, 100, 9)
 
@@ -30,7 +30,7 @@ with st.echo(code_location='below'):
         data.append(Point(x, y))
 
     st.altair_chart(
-        alt.Chart(pd.DataFrame(data), height=500, width=500)
+        alt.Chart(pd.DataFrame(data), height=50, width=50)
         .mark_circle(color='#0068c9', opacity=0.5)
         .encode(x='x:Q', y='y:Q')
     )
