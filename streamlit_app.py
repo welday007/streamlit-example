@@ -97,6 +97,34 @@ def email(subject, body):
     session.quit()
 
 
+# Open and display contents of requirements.txt
+with open('requirements.txt') as f:
+    requirements = f.read()
+    st.write(requirements)
+
+
+file_path = 'df_Best_ATM_Options.zip'
+modified_time = time.ctime(os.path.getmtime(file_path))
+try:
+    most_recent_Accounts_History = max(
+        glob.glob(f'Accounts_History*.csv'), key=os.path.getmtime
+    )
+    st.text(
+        f'df_Best_ATM_Options.zip = {modified_time}   {os.path.basename(most_recent_Accounts_History)} update = {time.ctime(os.path.getmtime(most_recent_Accounts_History))}'
+    )
+except:
+    st.text(f'last df_Best_ATM_Options.zip update = {modified_time}')
+    pass
+
+st.write(datetime.datetime.now())
+
+try:
+    df_all_ATM = get_data(file_path, modified_time)
+    st.dataframe(df_all_ATM)
+except:
+    st.text(f"Error reading {file_path}")
+
+
 with st.expander('Spiral'):
     total_points = st.slider("Number of points in spiral", 1, 5000, 2000)
     num_turns = st.slider("Number of turns in spiral", 1, 100, 9)
@@ -119,24 +147,3 @@ with st.expander('Spiral'):
         .mark_circle(color='#0068c9', opacity=0.5)
         .encode(x='x:Q', y='y:Q')
     )
-
-file_path = 'df_Best_ATM_Options.zip'
-modified_time = time.ctime(os.path.getmtime(file_path))
-try:
-    most_recent_Accounts_History = max(
-        glob.glob(f'Accounts_History*.csv'), key=os.path.getmtime
-    )
-    st.text(
-        f'df_Best_ATM_Options.zip = {modified_time}   {os.path.basename(most_recent_Accounts_History)} update = {time.ctime(os.path.getmtime(most_recent_Accounts_History))}'
-    )
-except:
-    st.text(f'last df_Best_ATM_Options.zip update = {modified_time}')
-    pass
-
-st.write(datetime.datetime.now())
-
-try:
-    df_all_ATM = get_data(file_path, modified_time)
-    st.dataframe(df_all_ATM)
-except:
-    st.text(f"Error reading {file_path}")
