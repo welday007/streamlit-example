@@ -7,12 +7,8 @@ import streamlit as st
 """
 # Best Options
 
-Edit `/streamlit_app.py` to customize this app to your heart's desire :heart:
+TradingView [QQQ](https://www.tradingview.com/chart/HBL4nq9u/?symbol=NASDAQ%3AQQQ)
 
-If you have any questions, checkout our [documentation](https://docs.streamlit.io) and [community
-forums](https://discuss.streamlit.io).
-
-In the meantime, below is an example of what you can do with just a few lines of code:
 """
 
 
