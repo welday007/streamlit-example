@@ -30,7 +30,7 @@ with st.expander('Spiral'):
         data.append(Point(x, y))
 
     st.altair_chart(
-        alt.Chart(pd.DataFrame(data), height=50, width=50)
+        alt.Chart(pd.DataFrame(data), height=250, width=250)
         .mark_circle(color='#0068c9', opacity=0.5)
         .encode(x='x:Q', y='y:Q')
     )
