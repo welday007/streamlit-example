@@ -97,21 +97,13 @@ def email(subject, body):
     session.quit()
 
 
-# Open and display contents of requirements.txt
-with open('requirements.txt') as f:
-    requirements = f.read()
-    st.write(requirements)
-
-
-file_path = 'df_Best_ATM_Options.zip'
+file_path = 'assets/df_Best_ATM_Options.zip'
 modified_time = time.ctime(os.path.getmtime(file_path))
 try:
     most_recent_Accounts_History = max(
-        glob.glob(f'Accounts_History*.csv'), key=os.path.getmtime
+        glob.glob(f'assets/Accounts_History*.csv'), key=os.path.getmtime
     )
-    st.text(
-        f'df_Best_ATM_Options.zip = {modified_time}'
-    )    
+    st.text(f'df_Best_ATM_Options.zip = {modified_time}')
     st.text(
         f'{os.path.basename(most_recent_Accounts_History)} update = {time.ctime(os.path.getmtime(most_recent_Accounts_History))}'
     )
