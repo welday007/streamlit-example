@@ -1,9 +1,39 @@
-from collections import namedtuple
-import altair as alt
-import math
-import pandas as pd
-import streamlit as st
-from datetime import date
+try:
+    if first_run == False:
+        pass
+except:
+    from collections import namedtuple
+    import altair as alt
+    import math
+
+    import datetime
+    import gc
+    import os.path
+    import pickle
+    import smtplib
+    import time
+    import glob
+    from datetime import date
+    from email.mime.multipart import MIMEMultipart
+
+    import altair as alt
+    import holoviews as hv
+    import ipywidgets as widgets
+    import pandas as pd
+    import streamlit as st
+    from bokeh.models import HoverTool
+    from IPython.core.display import HTML
+    from ipywidgets import HBox, Layout, VBox, interactive
+
+    hv.extension("bokeh")
+
+    if 'already_sent_start_email' not in st.session_state:
+        st.session_state['already_sent_start_email'] = False
+    if 'already_sent_end_email' not in st.session_state:
+        st.session_state['already_sent_end_email'] = False
+
+first_run = False
+
 
 """
 # Best Options
@@ -14,6 +44,8 @@ TradingView [QQQ](https://www.tradingview.com/chart/HBL4nq9u/?symbol=NASDAQ%3AQQ
 
 
 st.cache_data
+
+
 def get_data(file_path, modified_time):
     # st.text(f'getting file update {file_path} {modified_time}')
 
