@@ -13,7 +13,7 @@ TradingView [QQQ](https://www.tradingview.com/chart/HBL4nq9u/?symbol=NASDAQ%3AQQ
 """
 
 
-@st.experimental_memo(suppress_st_warning=True)
+st.cache_data
 def get_data(file_path, modified_time):
     # st.text(f'getting file update {file_path} {modified_time}')
 
