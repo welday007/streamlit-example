@@ -47,7 +47,7 @@ st.cache_data
 
 
 def get_data(file_path, modified_time):
-    # st.text(f'getting file update {file_path} {modified_time}')
+    st.text(f'getting file update {file_path} {modified_time}')
 
     source = pd.read_pickle(file_path)
 
@@ -57,6 +57,7 @@ def get_data(file_path, modified_time):
     source = source[source.Time.dt.strftime('%H:%M:%S').between('09:30:00', '16:00:00')]
     source = source[source.Time.dt.weekday.between(0, 4)]
 
+    st.text(f'Done getting file update {file_path} {modified_time}')
     return source
 
 
