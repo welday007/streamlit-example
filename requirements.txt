@@ -4,3 +4,4 @@ streamlit
 holoviews
 ipywidgets
 sqlalchemy
+sqlalchemy_utils
