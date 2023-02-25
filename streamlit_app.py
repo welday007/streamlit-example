@@ -43,13 +43,12 @@ TradingView [QQQ](https://www.tradingview.com/chart/HBL4nq9u/?symbol=NASDAQ%3AQQ
 """
 
 
-st.cache_data
-
-
+@st.cache_data
 def get_data(file_path, modified_time):
     st.text(f'getting file update {file_path} {modified_time}')
 
     source = pd.read_pickle(file_path)
+    st.text(f'Done reading pickle {file_path} {modified_time}')
 
     source["Time"] = pd.to_datetime(source["Time"])
 
