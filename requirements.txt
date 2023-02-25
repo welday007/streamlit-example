@@ -1,5 +1,5 @@
 altair
-pandas
+pandas--1.2.4
 streamlit
 holoviews
 ipywidgets

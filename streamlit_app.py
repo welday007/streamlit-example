@@ -110,7 +110,10 @@ try:
         glob.glob(f'Accounts_History*.csv'), key=os.path.getmtime
     )
     st.text(
-        f'df_Best_ATM_Options.zip = {modified_time}   {os.path.basename(most_recent_Accounts_History)} update = {time.ctime(os.path.getmtime(most_recent_Accounts_History))}'
+        f'df_Best_ATM_Options.zip = {modified_time}'
+    )    
+    st.text(
+        f'{os.path.basename(most_recent_Accounts_History)} update = {time.ctime(os.path.getmtime(most_recent_Accounts_History))}'
     )
 except:
     st.text(f'last df_Best_ATM_Options.zip update = {modified_time}')
