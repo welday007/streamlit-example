@@ -97,6 +97,10 @@ def email(subject, body):
     session.quit()
 
 
+from platform import python_version
+
+st.text(python_version())
+
 file_path = 'assets/df_Best_ATM_Options.zip'
 modified_time = time.ctime(os.path.getmtime(file_path))
 try:
